@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div class="sliders-section">
+      <div class="slider" id="slider-red">
+        <div class="slider-value" id="slider-red-value">0</div>
+        <div class="slider-container" style="background: #ff2e2e">
+          <div class="slider-bar"></div>
+          <div class="slider-handle"></div>
+        </div>
+      </div>
+
+      <div class="slider" id="slider-green">
+        <div class="slider-value" id="slider-green-value">0</div>
+        <div class="slider-container" style="background: #08ff00">
+          <div class="slider-bar"></div>
+          <div class="slider-handle"></div>
+        </div>
+      </div>
+
+      <div class="slider" id="slider-blue">
+        <div class="slider-value" id="slider-blue-value">0</div>
+        <div class="slider-container" style="background: #0004ff">
+          <div class="slider-bar"></div>
+          <div class="slider-handle"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./js/slider.js"></script>
+
+  <script>
+    ["#slider-red", "#slider-green", "#slider-blue"].forEach((selector) => {
+      initSlider({
+        rootElementSelector: selector,
+        displayElementSelector: `${selector}-value`,
+        minVal: 0,
+        maxVal: 255,
+      });
+    });
+  </script>
+</html>
