@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
+    <div class="content">
+      <div class="form-group">
+        <label>Image File:</label>
+        <input type="file" id="imageLoader" name="imageLoader" />
+      </div>
+      <canvas id="imageCanvas" class="image-canvas"></canvas>
+    </div>
+
     <div class="sliders-section">
       <div class="slider" id="slider-red">
         <div class="slider-value" id="slider-red-value">0</div>
@@ -36,15 +44,6 @@
   </body>
 
   <script src="./js/slider.js"></script>
-
-  <script>
-    ["#slider-red", "#slider-green", "#slider-blue"].forEach((selector) => {
-      initSlider({
-        rootElementSelector: selector,
-        displayElementSelector: `${selector}-value`,
-        minVal: 0,
-        maxVal: 255,
-      });
-    });
-  </script>
+  <script src="./js/image_process.js"></script>
+  <script src="./js/index.js"></script>
 </html>

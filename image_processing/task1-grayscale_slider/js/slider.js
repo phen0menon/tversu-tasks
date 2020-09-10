@@ -3,6 +3,7 @@ const initSlider = ({
   displayElementSelector,
   minVal,
   maxVal,
+  onChange,
 }) => {
   const rootEl = document.querySelector(rootElementSelector);
   const container = rootEl.querySelector(".slider-container");
@@ -10,7 +11,10 @@ const initSlider = ({
   const handle = rootEl.querySelector(".slider-handle");
   const display = document.querySelector(displayElementSelector);
 
-  let isSliding = false;
+  const state = {
+    isSliding: false,
+    value: minVal,
+  };
 
   const range = maxVal - minVal;
 
@@ -33,18 +37,21 @@ const initSlider = ({
     const x = (y * range) / 100;
 
     const sliderValue = Math.round(x);
+    state.value = sliderValue + minVal;
 
-    display.textContent = sliderValue + minVal;
+    onChange(state.value);
+
+    display.textContent = state.value;
     slider.style.height = percentHeight + "%";
   };
 
   const addMovingListener = () => {
-    isSliding = true;
+    state.isSliding = true;
     document.addEventListener("mousemove", moveSlider, false);
   };
 
   const removeMovingListener = () => {
-    if (isSliding) {
+    if (state.isSliding) {
       document.removeEventListener("mousemove", moveSlider, false);
     }
   };
@@ -56,4 +63,6 @@ const initSlider = ({
   container.addEventListener("mouseup", removeMovingListener);
   container.addEventListener("mousedown", moveSlider);
   document.addEventListener("mouseup", removeMovingListener);
+
+  return state;
 };
