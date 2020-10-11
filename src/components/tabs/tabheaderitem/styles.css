@@ -1,0 +1,8 @@
+.tab {
+  padding: 10px;
+  background-color: white;
+}
+
+.tabActive {
+  background-color: rgba(0, 0, 0, 0.25);
+}
