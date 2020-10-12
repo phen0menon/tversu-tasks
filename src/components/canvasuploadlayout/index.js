@@ -2,12 +2,6 @@ import { h } from "preact";
 import { useContext, useRef } from "preact/hooks";
 import { AppContext } from "../app";
 
-const getImageRatio = (canvas) => {
-  const { width, height } = canvas;
-  const ratio = width / height;
-  return ratio;
-};
-
 const correctImageRatio = (image) => {
   const widthDefaultThreshold = 800;
   const heightDefaultThreshold = 600;
