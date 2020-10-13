@@ -5,7 +5,7 @@ import { useCallback, useContext } from "preact/hooks";
 import { TabContext } from "../contexts";
 import styles from "./styles.css";
 
-const TabHeaderItem = ({ id, children }) => {
+const TabHeaderItem = ({ id, children, render }) => {
   const { tab, setTab } = useContext(TabContext);
   const tabClassName = classnames(styles.tab, {
     [styles.tabActive]: tab === id,
@@ -14,6 +14,11 @@ const TabHeaderItem = ({ id, children }) => {
   const onTabClick = useCallback(() => {
     setTab(id);
   }, [setTab, id]);
+
+  // Custom render with onClick callback
+  if (render) {
+    return render(onTabClick);
+  }
 
   return (
     <div className={tabClassName} onClick={onTabClick}>
@@ -25,6 +30,7 @@ const TabHeaderItem = ({ id, children }) => {
 TabHeaderItem.propTypes = {
   id: PropTypes.string,
   children: PropTypes.node,
+  render: PropTypes.func,
 };
 
 export default TabHeaderItem;

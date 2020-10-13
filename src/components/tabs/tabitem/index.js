@@ -7,7 +7,7 @@ import styles from "./styles.css";
 
 const TabItem = ({ id, children }) => {
   const { tab } = useContext(TabContext);
-  return <div className={styles.root}>{id === tab && children}</div>;
+  return <div>{id === tab && children}</div>;
 };
 
 TabItem.propTypes = {

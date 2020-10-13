@@ -1,8 +1,12 @@
 .tab {
-  padding: 10px;
-  background-color: white;
+  cursor: pointer;
+  padding: 1.5rem 1rem;
+  background-color: transparent;
+  color: #888;
+  font-weight: 500;
+  transition: 0.2s;
 }
 
 .tabActive {
-  background-color: rgba(0, 0, 0, 0.25);
+  color: black;
 }

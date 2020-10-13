@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useCallback, useMemo, useState } from "preact/hooks";
+import styles from "./styles.css";
 
 const initialState = {
   red: 0,
@@ -23,7 +24,7 @@ const GrayscaleTab = () => {
   const renderedInputs = useMemo(
     () =>
       keys.map((key) => (
-        <div>
+        <div className={styles.root}>
           {key}:
           <input
             type="range"
