@@ -8,9 +8,12 @@ import TabItem from "../Tabs/TabItem";
 import CanvasLayout from "../CanvasLayout";
 import GrayscaleTab from "../../tabs/Grayscale";
 import HistogramTab from "../../tabs/Histogram";
-import CanvasUploadLayout from "../canvasuploadlayout";
+import CanvasUploadLayout from "../../tabs/Upload";
 import { AppContext } from "./context";
-import styles from "./styles.css";
+
+import uploadIcon from "../../assets/icons/upload.svg";
+
+import styles from "./styles.scss";
 
 const App = () => {
   const [imageData, setImageData] = useState(null);
@@ -34,7 +37,8 @@ const App = () => {
               id="-1"
               render={(onClick) => (
                 <button onClick={onClick} className={styles.newImageButton}>
-                  New image
+                  <span>Upload image</span>
+                  <img src={uploadIcon} alt="Upload icon" />
                 </button>
               )}
             />

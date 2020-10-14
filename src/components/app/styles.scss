@@ -19,6 +19,7 @@
 
 .newImageButton {
   display: flex;
+  align-items: center;
   text-align: left;
   border-radius: 10px;
   border: none;
@@ -29,4 +30,10 @@
   background: rgb(113, 59, 217);
   color: white;
   font-weight: 500;
+
+  img {
+    width: 18px;
+    height: 18px;
+    margin-left: 14px;
+  }
 }
