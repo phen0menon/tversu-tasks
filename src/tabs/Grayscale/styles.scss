@@ -1,0 +1,13 @@
+.root {
+  padding: 15px 20px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 6px;
+    min-width: 25px;
+  }
+}

@@ -8,11 +8,6 @@ const Upload = () => {
 
   const canvasRef = useRef();
 
-  const imageUploadRef = useRef();
-  const onImageUploadClick = useCallback(() => {
-    imageUploadRef.current.click();
-  }, [imageUploadRef]);
-
   // const [localData, setLocalData] = useState({
   //   image: null,
   //   imageData: null,
