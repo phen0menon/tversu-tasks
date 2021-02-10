@@ -1,16 +1,25 @@
+import kotlin.system.measureTimeMillis
+
 fun main() {
-    val lMatrix = generateDoubleMatrix(400, 400)
-    val rMatrix = generateDoubleMatrix(400, 400)
+    val lMatrix = generateDoubleMatrix(500, 500)
+    val rMatrix = generateDoubleMatrix(500, 500)
 
-    countIt {
-        ProductController.multiply(
-            lMatrix,
-            rMatrix,
-            10
-        )
+    val measuredTimeUsingThreads = measureTimeMillis {
+        val result = MatrixMultiplicator.multiply(lMatrix, rMatrix, 3)
+//         showMatrix(result)
     }
 
-    countIt {
-        naiveProduct(lMatrix, rMatrix)
+    println()
+    println("Measured time using threads is $measuredTimeUsingThreads")
+    println()
+
+    val measuredTimeUsingNaive = measureTimeMillis {
+        val result = naiveProduct(lMatrix, rMatrix)
+//         showMatrix(result)
     }
+
+    println()
+    println("Measured time using naive alg is $measuredTimeUsingNaive")
+
+
 }

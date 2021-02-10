@@ -1,16 +1,24 @@
 import kotlin.random.Random
 
-fun countIt(lambda: () -> Unit) {
-    val start = System.currentTimeMillis()
-    lambda()
-    val end = System.currentTimeMillis()
-    println(end - start)
-}
-
 fun generateDoubleMatrix(rows: Int, cols: Int) : Array<Array<Double>> {
     val result: Array<Array<Double>> = Array(rows) { Array(cols) { 0.0 } }
     for (i in 0 until rows) {
         result[i] = (1..cols).map{ Random.nextDouble() }.toTypedArray()
+    }
+    return result
+}
+
+fun generateEmptyDoubleMatrix(rows: Int, cols: Int): Array<Array<Double>> {
+    return Array(rows) { Array(cols) { 0.0 } }
+}
+
+fun productRange(lMatrix: Array<Array<Double>>,
+                 rMatrix: Array<Array<Double>>,
+                 row: Int,
+                 col: Int): Double {
+    var result = 0.0
+    for (i in lMatrix[row].indices) {
+        result += lMatrix[row][i] * rMatrix[i][col]
     }
     return result
 }
@@ -28,4 +36,24 @@ fun naiveProduct(
         }
     }
     return result
+}
+
+fun showMatrix(matrix: Array<Array<Double>>) {
+    for (i in matrix.indices) {
+        for (j in matrix[i].indices) {
+            print(matrix[i][j])
+            print(" ")
+        }
+        println()
+    }
+}
+
+fun getMatricesMeta(
+    lMatrix: Array<Array<Double>>,
+    rMatrix: Array<Array<Double>>): Triple<Int, Int, Int> {
+    return Triple(
+        lMatrix.size,
+        rMatrix[0].size,
+        lMatrix.size * rMatrix[0].size
+    )
 }
